@@ -1,67 +1,65 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import Slider from 'react-slick';
+
+import { center } from '../styles/common';
+import { homeCss } from '../styles/home';
 
 export default function Home() {
+  const visualSlider = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+  };
+
+  const newArrivalSlider = {
+    slidesToShow: 1,
+  };
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{` `}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <p className={styles.description}>This is not an official starter!</p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=typescript-nextjs-starter"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <div css={homeCss}>
+      <div className="visual">
+        <Slider {...visualSlider}>
+          <div className="visual-slider">
+            <p>안녕하세요.</p>
+          </div>
+          <div className="visual-slider">
+            <p>어서오소.</p>
+          </div>
+        </Slider>
+      </div>
+      <div css={center}>
+        <div className="main new-arrival">
+          <div className="main-title">
+            <h2>
+              <i>#</i> NEW ARRIVAL
+            </h2>
+            <button type="button">전체상품 보기</button>
+          </div>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=typescript-nextjs-starter"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{` `}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+        <div className="main pre-order">
+          <div className="main-title">
+            <h2>
+              <i>#</i> PRE-ORDER
+            </h2>
+            <button type="button">프리오더 전체보기</button>
+          </div>
+        </div>
+        <div className="main best-items">
+          <div className="main-title">
+            <h2>
+              <i>#</i> BEST ITEMS
+            </h2>
+            <button type="button">전체상품 보기</button>
+          </div>
+        </div>
+        <div className="main magazine">
+          <div className="main-title">
+            <h2>
+              <i>#</i> MAGAZINE
+            </h2>
+            <button type="button">매거진 바로가기</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
