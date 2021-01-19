@@ -84,7 +84,6 @@ export const globalStyle = css`
   h5,
   h6 {
     font-size: 14px;
-    font-weight: normal;
   }
   img,
   fieldset,

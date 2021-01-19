@@ -17,13 +17,13 @@ export default function Signin() {
           </form>
           <ul>
             <li>
-              <Link href="/signup">회원가입</Link>
+              <Link href="/signup/1">회원가입</Link>
             </li>
             <li>
-              <Link href="/signup">계정 찾기</Link>
+              <Link href="/findId">계정 찾기</Link>
             </li>
             <li>
-              <Link href="/signup">비밀번호 찾기</Link>
+              <Link href="/findPw">비밀번호 찾기</Link>
             </li>
           </ul>
         </div>
