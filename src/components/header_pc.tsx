@@ -33,10 +33,10 @@ export default function HeaderPc() {
           <div className="util-menu">
             <ul>
               <li>
-                <Link href="/signin">회원가입</Link>
+                <Link href="/signup">회원가입</Link>
               </li>
               <li>
-                <Link href="/login">로그인</Link>
+                <Link href="/signin">로그인</Link>
               </li>
             </ul>
             <button type="button">

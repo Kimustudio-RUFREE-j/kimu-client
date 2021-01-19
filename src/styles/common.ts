@@ -147,19 +147,19 @@ export const burgerIcon = css`
     transition: all 0.25s;
     background-color: #1d1d1d;
 
-    &:nth-child(1) {
+    &:nth-of-type(1) {
       top: 0;
     }
 
-    &:nth-child(2) {
+    &:nth-of-type(2) {
       top: 7px;
     }
 
-    &:nth-child(3) {
+    &:nth-of-type(3) {
       top: 14px;
     }
 
-    &:nth-child(4) {
+    &:nth-of-type(4) {
       top: 7px;
       background-color: transparent;
 
@@ -190,24 +190,24 @@ export const burgerIcon = css`
 
   &.active {
     .line {
-      &:nth-child(1) {
+      &:nth-of-type(1) {
         opacity: 0;
         transform: translateX(-100%);
       }
 
-      &:nth-child(2) {
+      &:nth-of-type(2) {
         opacity: 0;
         transform: translateX(100%);
         transition-delay: 80ms;
       }
 
-      &:nth-child(3) {
+      &:nth-of-type(3) {
         opacity: 0;
         transform: translateX(-100%);
         transition-delay: 160ms;
       }
 
-      &:nth-child(4) {
+      &:nth-of-type(4) {
         &:before,
         &:after {
           transition: opacity 0.2s, transform 0.38s;

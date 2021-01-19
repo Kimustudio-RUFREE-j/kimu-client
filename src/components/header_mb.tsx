@@ -69,8 +69,8 @@ export default function HeaderMb() {
           </ul>
         </div>
         <div className="mb-btn">
-          <Link href="/signin">회원가입</Link>
-          <Link href="/login">로그인</Link>
+          <Link href="/signup">회원가입</Link>
+          <Link href="/signin">로그인</Link>
         </div>
       </nav>
     </header>
