@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { center, onlyPc, headerCss } from '@/styles/common';
-import { subMenus, mainMenus } from '../constants';
+import { center, onlyPc } from '@/styles/common';
+import { headerCss } from '@/styles/header';
+import { subMenus, mainMenus } from '@/constants';
 
 export default function HeaderPc() {
   return (

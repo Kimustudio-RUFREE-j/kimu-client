@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
+import { mq } from '@/styles/common';
 
 export const homeCss = css`
   .visual {
-    padding-top: 115px;
     background-color: yellow;
     overflow: hidden;
   }
@@ -79,6 +79,12 @@ export const homeCss = css`
       > button {
         background: #eb5a3d;
       }
+    }
+  }
+
+  ${mq[0]} {
+    .visual-slider {
+      height: calc(100vh - 55px);
     }
   }
 `;

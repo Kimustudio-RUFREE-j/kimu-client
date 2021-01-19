@@ -1,5 +1,6 @@
-import { socials } from '../constants';
-import { center, footerCss } from '../styles/common';
+import { socials } from '@/constants';
+import { center } from '@/styles/common';
+import { footerCss } from '@/styles/footer';
 
 export default function Footer() {
   return (

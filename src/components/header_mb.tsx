@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import { onlyMb, headerCss, burgerIcon, mbMenuCss } from '@/styles/common';
-import { subMenus, mainMenus } from '../constants';
+import { onlyMb } from '@/styles/common';
+import { headerCss, burgerIcon, mbMenuCss } from '@/styles/header';
+import { subMenus, mainMenus } from '@/constants';
 
 export default function HeaderMb() {
   const [burger, setBurger] = useState(false);
