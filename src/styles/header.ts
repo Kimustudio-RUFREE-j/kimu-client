@@ -285,7 +285,7 @@ export const mbMenuCss = css`
       line-height: 1.5;
       text-align: center;
       color: #fff;
-      padding: 14px 0;
+      padding: 14px 0 39px;
       background-color: #1d1d1d;
       &:last-of-type {
         position: relative;
