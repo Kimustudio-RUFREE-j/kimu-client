@@ -22,7 +22,7 @@ export default function Footer() {
             <div className="help-info">
               <h6>고객센터</h6>
               <p>
-                <em>10:00 - 18:00(점심시간 12:00 - 13:00)</em>
+                <em>10:00 - 18:00 (점심시간 12:00 - 13:00)</em>
                 <em>070-4159-6789</em>
                 <em>md@kimustudio.com</em>
               </p>

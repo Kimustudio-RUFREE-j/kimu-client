@@ -97,7 +97,8 @@ export const signinCss = css`
   ${mq[0]} {
     display: block;
     margin: 33px 0 55px;
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     box-sizing: border-box;
     .signin,
     .non-member {
@@ -150,8 +151,9 @@ export const signinCss = css`
 export const signupCss = css`
   max-width: 468px;
   width: 100%;
-  margin: 0 auto;
-  padding: 43px 20px;
+  margin: 43px auto 0;
+  padding-left: 20px;
+  padding-right: 20px;
   box-sizing: border-box;
 
   .agree-header {
@@ -163,6 +165,10 @@ export const signupCss = css`
     font-size: 20px;
     text-align: center;
     margin-bottom: 26px;
+    &.auth-header {
+      margin-top: 60px;
+      margin-bottom: 57px;
+    }
   }
 
   .agree-container .check-box {
@@ -235,19 +241,84 @@ export const signupCss = css`
     color: #6b6b6b;
   }
 
-  .agree-btn {
+  .agree-btn,
+  .signup-btn {
     display: block;
     width: 220px;
     font-size: 15px;
     color: #fff;
-    margin: 35px auto 60px;
+    text-align: center;
+    margin: 35px auto 110px;
     padding: 18px 10px;
     box-shadow: 0 5px 13px 0 rgba(0, 0, 0, 0.15);
     background-color: #1d1d1d;
   }
 
+  .signup-btn {
+    margin-top: 99px;
+  }
+
+  .auth-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .auth-form {
+    input {
+      display: block;
+      width: 100%;
+      margin-bottom: 25px;
+      padding: 14px 13px;
+      border: 1px solid #d5d5d5;
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: #f8f8f8;
+      &:focus {
+        background-color: #fff;
+      }
+    }
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      input {
+        width: calc(100% - 110px);
+      }
+      button {
+        width: 110px;
+        color: #fff;
+        line-height: 1.4;
+        margin-left: 10px;
+        padding: 15px 10px;
+        border-radius: 5px;
+        background-color: #d5d5d5;
+      }
+    }
+  }
+
+  .auth-birth {
+    font-size: 13px;
+    color: #6b6b6b;
+    margin-top: 35px;
+    padding-top: 35px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .birth-input {
+    display: flex;
+    justify-content: flex-end;
+  }
+
   ${mq[0]} {
-    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+
     .agree-header {
       display: flex;
       justify-content: space-between;
@@ -260,6 +331,10 @@ export const signupCss = css`
       font-size: 15px;
       text-align: left;
       margin-bottom: 0;
+      &.auth-header {
+        font-size: 17px;
+        margin: 25px 0;
+      }
     }
 
     .agree-container {
@@ -271,12 +346,22 @@ export const signupCss = css`
       margin: 0;
     }
 
-    .agree-btn {
+    .agree-btn,
+    .signup-btn {
       width: 100%;
       font-size: 15px;
       margin: 39px auto 0;
-      padding: 14px 5px;
+      padding: 14px 5px 39px;
       box-shadow: none;
+    }
+
+    .signup-btn {
+      margin-top: 99px;
+    }
+
+    .auth-birth {
+      margin-top: 25px;
+      padding-top: 25px;
     }
   }
 `;

@@ -1,13 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
+
 import HeaderMb from '@/components/header_mb';
+import Footer from '@/components/footer';
+
+import { onlyPc, containerCss } from '@/styles/common';
 import { signinCss } from '@/styles/auth';
 
 export default function Signin() {
   return (
     <>
       <HeaderMb />
-      <div css={signinCss}>
+      <div css={[containerCss, signinCss]}>
         <div className="signin">
           <h2>로그인</h2>
           <form>
@@ -17,7 +21,7 @@ export default function Signin() {
           </form>
           <ul>
             <li>
-              <Link href="/signup/1">회원가입</Link>
+              <Link href="/signup/1agree">회원가입</Link>
             </li>
             <li>
               <Link href="/findId">계정 찾기</Link>
@@ -40,6 +44,9 @@ export default function Signin() {
             <button type="submit">비회원으로 주문조회 가기</button>
           </form>
         </div>
+      </div>
+      <div css={onlyPc}>
+        <Footer />
       </div>
     </>
   );

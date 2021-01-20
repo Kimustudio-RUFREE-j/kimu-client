@@ -2,8 +2,9 @@ import React from 'react';
 import Slider from 'react-slick';
 
 import HeaderMb from '@/components/header_mb';
+import Footer from '@/components/footer';
 
-import { center } from '@/styles/common';
+import { center, containerCss } from '@/styles/common';
 import { homeCss } from '@/styles/home';
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
   return (
     <>
       <HeaderMb />
-      <div css={homeCss}>
+      <div css={[containerCss, homeCss]}>
         <div className="visual">
           <Slider {...visualSlider}>
             <div className="visual-slider">
@@ -62,6 +63,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

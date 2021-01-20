@@ -34,7 +34,7 @@ export default function HeaderPc() {
           <div className="util-menu">
             <ul>
               <li>
-                <Link href="/signup/1">회원가입</Link>
+                <Link href="/signup/1agree">회원가입</Link>
               </li>
               <li>
                 <Link href="/signin">로그인</Link>

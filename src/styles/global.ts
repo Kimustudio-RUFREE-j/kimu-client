@@ -19,15 +19,45 @@ export const globalStyle = css`
     src: url('/assets/fonts/OpenSansCondensed/OpenSansCondensed-LightItalic.ttf')
       format('truetype');
   }
+  @font-face {
+    font-family: 'NanumSquareRound';
+    font-weight: 100;
+    src: url('/assets/fonts/NanumSquareRound/NanumSquareRoundL.ttf')
+      format('truetype');
+  }
+  @font-face {
+    font-family: 'NanumSquareRound';
+    font-weight: 400;
+    src: url('/assets/fonts/NanumSquareRound/NanumSquareRoundR.ttf')
+      format('truetype');
+  }
+  @font-face {
+    font-family: 'NanumSquareRound';
+    font-weight: 800;
+    src: url('/assets/fonts/NanumSquareRound/NanumSquareRoundB.ttf')
+      format('truetype');
+  }
+  @font-face {
+    font-family: 'NanumSquareRound';
+    font-weight: 900;
+    src: url('/assets/fonts/NanumSquareRound/NanumSquareRoundEB.ttf')
+      format('truetype');
+  }
+
   * {
     margin: 0;
     padding: 0;
     white-space: normal;
     word-break: break-word;
   }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
   html,
   body {
-    font-family: OpenSansCondensed, HGGGothicssi, Roboto, 'Droid Sans',
+    font-family: OpenSansCondensed, NanumSquareRound, HGGGothicssi, Roboto,
       'Malgun Gothic', Helvetica, Apple-Gothic, 애플고딕, sans-serif;
     font-weight: normal;
     word-spacing: normal;
@@ -41,11 +71,6 @@ export const globalStyle = css`
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
     font-size: 14px;
-  }
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
   }
   body,
   div,
@@ -132,7 +157,7 @@ export const globalStyle = css`
     *left: auto;
   }
   a {
-    font-family: OpenSansCondensed, HGGGothicssi, Roboto, 'Droid Sans',
+    font-family: OpenSansCondensed, NanumSquareRound, HGGGothicssi, Roboto,
       'Malgun Gothic', Helvetica, Apple-Gothic, 애플고딕, sans-serif;
     color: #1d1d1d;
     text-decoration: none;
@@ -205,7 +230,7 @@ export const globalStyle = css`
   textarea,
   select,
   button {
-    font-family: OpenSansCondensed, HGGGothicssi, Roboto, 'Droid Sans',
+    font-family: OpenSansCondensed, NanumSquareRound, HGGGothicssi, Roboto,
       'Malgun Gothic', Helvetica, Apple-Gothic, 애플고딕, sans-serif;
   }
 `;
