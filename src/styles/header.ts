@@ -198,7 +198,7 @@ export const mbMenuCss = css`
   left: 0;
   display: none;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   box-sizing: border-box;
   opacity: 0;
   animation: ${fadeOut} 0.3s;
