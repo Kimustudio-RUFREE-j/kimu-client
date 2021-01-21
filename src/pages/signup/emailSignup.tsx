@@ -12,9 +12,9 @@ export default function Signup2() {
     <>
       <HeaderMb />
       <div css={[containerCss, signupCss]}>
-        <div className="auth-container">
-          <h2 className="auth-header">회원가입</h2>
-          <form className="auth-form">
+        <div className="signup-wrap">
+          <h2 className="signup-header">회원가입</h2>
+          <form className="signup-form">
             <input type="email" placeholder="이메일" />
             <input
               type="password"
@@ -23,9 +23,13 @@ export default function Signup2() {
             <input type="password" placeholder="비밀번호 재입력" />
           </form>
         </div>
-        <Link href="/signup/3phone">
-          <a className="signup-btn">이메일로 가입하기</a>
-        </Link>
+        <div className="signup-btn-wrap">
+          <Link href="/signup/agree">
+            <button className="signup-btn signup" type="button">
+              이메일로 가입하기
+            </button>
+          </Link>
+        </div>
       </div>
       <div css={onlyPc}>
         <Footer />

@@ -96,7 +96,6 @@ export const headerCss = css`
         height: 25px;
       }
     }
-
     .search-btn {
       > img {
         width: 20px;
@@ -112,33 +111,28 @@ export const burgerIcon = css`
   cursor: pointer;
 
   .line {
-    opacity: 1;
     position: absolute;
     left: 0;
     display: block;
     width: 20px;
     height: 2px;
     margin-top: 2px;
+    opacity: 1;
     transform: rotate(0deg);
     transition: all 0.25s;
     background-color: #1d1d1d;
-
     &:nth-of-type(1) {
       top: 0;
     }
-
     &:nth-of-type(2) {
       top: 7px;
     }
-
     &:nth-of-type(3) {
       top: 14px;
     }
-
     &:nth-of-type(4) {
       top: 7px;
       background-color: transparent;
-
       &:before,
       &:after {
         opacity: 0;
@@ -153,11 +147,9 @@ export const burgerIcon = css`
         content: '';
         transition: all 0.25s;
       }
-
       &:before {
         transform: rotate(45deg) translateX(-10px) translateZ(0);
       }
-
       &:after {
         transform: rotate(-45deg) translateX(10px) translateZ(0);
       }
@@ -170,31 +162,26 @@ export const burgerIcon = css`
         opacity: 0;
         transform: translateX(-100%);
       }
-
       &:nth-of-type(2) {
         opacity: 0;
         transform: translateX(100%);
         transition-delay: 80ms;
       }
-
       &:nth-of-type(3) {
         opacity: 0;
         transform: translateX(-100%);
         transition-delay: 160ms;
       }
-
       &:nth-of-type(4) {
         &:before,
         &:after {
           transition: opacity 0.2s, transform 0.38s;
         }
-
         &:before {
           opacity: 1;
           transform: rotate(45deg) translateX(0px) translateZ(0);
           transition-delay: 150ms;
         }
-
         &:after {
           opacity: 1;
           transform: rotate(-45deg) translateX(0px) translateZ(0);
@@ -206,22 +193,19 @@ export const burgerIcon = css`
 `;
 
 export const mbMenuCss = css`
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
+  display: none;
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
-  background-color: #fff;
   opacity: 0;
   animation: ${fadeOut} 0.3s;
   animation-fill-mode: forwards;
-
+  background-color: #fff;
   &.active {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+    display: block;
     animation: ${fadeIn} 0.3s;
     animation-fill-mode: forwards;
   }
@@ -236,11 +220,10 @@ export const mbMenuCss = css`
     > h2 {
       font-size: 15px;
     }
-  }
-
-  .cart-btn {
-    > img {
-      width: 25px;
+    .cart-btn {
+      > img {
+        width: 25px;
+      }
     }
   }
 
@@ -277,7 +260,11 @@ export const mbMenuCss = css`
     }
   }
 
-  .mb-btn {
+  .mb-menu-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     > a {
       display: inline-block;
       width: 50%;
@@ -285,7 +272,7 @@ export const mbMenuCss = css`
       line-height: 1.5;
       text-align: center;
       color: #fff;
-      padding: 14px 0 39px;
+      padding: 14px 0;
       background-color: #1d1d1d;
       &:last-of-type {
         position: relative;
