@@ -68,7 +68,7 @@ export default function HeaderMb() {
           ))}
         </ul>
         <div className="mb-menu-btn">
-          <Link href="/signup/emailSignup">회원가입</Link>
+          <Link href="/signup">회원가입</Link>
           <Link href="/signin">로그인</Link>
         </div>
       </nav>

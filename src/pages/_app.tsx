@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import { RecoilRoot } from 'recoil';
 import { Global } from '@emotion/react';
 import { globalStyle } from '@/styles/global';
 import 'slick-carousel/slick/slick.css';
@@ -31,10 +32,12 @@ export default function MyApp({ Component, pageProps }) {
           crossOrigin=""
         />
       </Head>
-      <Global styles={globalStyle} />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <RecoilRoot>
+        <Global styles={globalStyle} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </RecoilRoot>
     </>
   );
 }

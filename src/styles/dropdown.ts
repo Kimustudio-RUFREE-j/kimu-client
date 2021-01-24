@@ -56,9 +56,12 @@ export const dropdownCss = css`
     left: 0;
     right: 0;
     width: 100%;
+    height: 100%;
+    min-height: 300px;
     margin-top: 2px;
     border: 1px solid #d5d5d5;
     box-sizing: border-box;
+    overflow-y: scroll;
   }
 
   .dd-list-item {

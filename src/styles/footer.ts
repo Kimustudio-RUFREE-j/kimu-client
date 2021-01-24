@@ -99,6 +99,7 @@ export const footerCss = css`
     .info-wrap {
       display: block;
       > div {
+        padding-right: 0;
         &.co-info > address,
         &.help-info,
         &.account-info {

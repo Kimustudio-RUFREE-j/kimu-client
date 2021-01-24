@@ -166,26 +166,24 @@ export const signupCss = css`
       margin-bottom: 57px;
     }
   }
-  .signup-btn-wrap {
-    .signup-btn {
-      display: block;
-      width: 220px;
-      font-size: 15px;
-      color: #fff;
-      text-align: center;
-      margin: 35px auto 110px;
-      padding: 18px 10px;
-      box-shadow: 0 5px 13px 0 rgba(0, 0, 0, 0.15);
-      opacity: 0.5;
-      background-color: #1d1d1d;
-      cursor: not-allowed;
-      &.signup {
-        margin-top: 99px;
-      }
-      &.fill {
-        opacity: 1;
-        cursor: pointer;
-      }
+  .signup-btn {
+    display: block;
+    width: 220px;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    margin: 35px auto 110px;
+    padding: 18px 10px;
+    box-shadow: 0 5px 13px 0 rgba(0, 0, 0, 0.15);
+    opacity: 0.5;
+    background-color: #1d1d1d;
+    cursor: not-allowed;
+    &.signup {
+      margin-top: 99px;
+    }
+    &.fill {
+      opacity: 1;
+      cursor: pointer;
     }
   }
 
@@ -271,10 +269,9 @@ export const signupCss = css`
   }
 
   .signup-form {
-    input {
+    input:not([type='radio']) {
       display: block;
       width: 100%;
-      margin-bottom: 25px;
       padding: 14px 13px;
       border: 1px solid #d5d5d5;
       border-radius: 5px;
@@ -285,12 +282,17 @@ export const signupCss = css`
       }
     }
 
+    .validation {
+      padding: 12px 5px;
+      color: red;
+    }
+
     /* 휴대폰 인증 input & button */
-    > div {
+    &.tel > div {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      input {
+      input:not([type='radio']) {
         width: calc(100% - 110px);
       }
       button {
@@ -301,27 +303,93 @@ export const signupCss = css`
         padding: 15px 10px;
         border-radius: 5px;
         background-color: #d5d5d5;
+        &.fill {
+          background-color: #1d1d1d;
+        }
       }
     }
   }
 
   /* 생년월일 입력 selectbox */
-  .signup-birth {
+  .signup-birth,
+  .signup-gender {
+    display: flex;
+    align-items: center;
     font-size: 13px;
     color: #6b6b6b;
     margin-top: 35px;
+    > span {
+      width: 60px;
+      margin-right: 50px;
+    }
+  }
+  .signup-birth {
+    .custom-datepicker {
+      position: relative;
+      width: calc(100% - 60px);
+      &:after {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        width: 5px;
+        height: 5px;
+        border-style: solid;
+        border-width: 0px 1px 1px 0px;
+        border-color: #6b6b6b;
+        transform: rotate(45deg) translateY(-50%);
+        content: '';
+      }
+      &.on:after {
+        transform: rotate(-135deg);
+      }
+      > div {
+        width: 100%;
+      }
+    }
+  }
+
+  /* 성별 입력 */
+  .signup-gender {
     padding-bottom: 35px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    > div {
-      display: flex;
-      justify-content: flex-end;
+    label:last-of-type {
+      margin-left: 20px;
+    }
+    input[type='radio'] {
+      display: none;
+    }
+    input[type='radio'] + label span {
+      position: relative;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      margin: -2px 5px 0 0;
+      border: 1px solid #838383;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    input[type='radio']:checked + label span:after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #6b6b6b;
+      content: '';
     }
   }
 
   ${mq[0]} {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     max-width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     margin: 0 auto;
     padding-left: 0;
     padding-right: 0;
@@ -337,20 +405,17 @@ export const signupCss = css`
         margin: 25px 0;
       }
     }
-    .signup-btn-wrap {
+    .signup-btn {
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      .signup-btn {
-        width: 100%;
-        font-size: 15px;
-        margin: 39px auto 0;
-        padding: 14px 5px;
-        box-shadow: none;
-        &.signup {
-          margin-top: 99px;
-        }
+      font-size: 15px;
+      margin: 39px auto 0;
+      padding: 14px 5px;
+      box-shadow: none;
+      &.signup {
+        margin-top: 99px;
       }
     }
 
@@ -374,8 +439,11 @@ export const signupCss = css`
     }
 
     /* 생년월일 입력 selectbox */
-    .signup-birth {
+    .signup-birth,
+    .signup-gender {
       margin-top: 25px;
+    }
+    .signup-gender {
       padding-bottom: 25px;
     }
   }
