@@ -210,6 +210,11 @@ export const mbMenuCss = css`
     animation-fill-mode: forwards;
   }
 
+  .mb-menu {
+    height: calc((100% - 56px) - 50px);
+    overflow-y: auto;
+  }
+
   .mb-menu-header {
     display: flex;
     justify-content: space-between;

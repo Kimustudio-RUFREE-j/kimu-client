@@ -47,26 +47,28 @@ export default function HeaderMb() {
             <span className="line" /> <span className="line" />
           </button>
         </div>
-        <ul className="mb-main-menu">
-          {mainMenus.map((mainMenu) => (
-            <li key={mainMenu.path}>
-              <Link href={mainMenu.path}>{mainMenu.name.toUpperCase()}</Link>
-            </li>
-          ))}
-        </ul>
-        <ul className="mb-sub-menu">
-          {subMenus.map((subMenu) => (
-            <li key={subMenu.path}>
-              <Link href={subMenu.path}>
-                <a>
-                  <span>{subMenu.name.toUpperCase()}</span>
-                  <i />
-                </a>
-              </Link>
-              <i />
-            </li>
-          ))}
-        </ul>
+        <div className="mb-menu">
+          <ul className="mb-main-menu">
+            {mainMenus.map((mainMenu) => (
+              <li key={mainMenu.path}>
+                <Link href={mainMenu.path}>{mainMenu.name.toUpperCase()}</Link>
+              </li>
+            ))}
+          </ul>
+          <ul className="mb-sub-menu">
+            {subMenus.map((subMenu) => (
+              <li key={subMenu.path}>
+                <Link href={subMenu.path}>
+                  <a>
+                    <span>{subMenu.name.toUpperCase()}</span>
+                    <i />
+                  </a>
+                </Link>
+                <i />
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className="mb-menu-btn">
           <Link href="/signup">회원가입</Link>
           <Link href="/signin">로그인</Link>

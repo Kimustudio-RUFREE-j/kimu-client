@@ -7,6 +7,7 @@ interface SignupInfo {
   birth: string;
   gender: string;
   phone: string;
+  pickIssues: { id: number; title: string }[];
   step: number;
 }
 
@@ -19,7 +20,8 @@ const signupState = atom<SignupInfo>({
     birth: null,
     gender: null,
     phone: null,
-    step: 2,
+    pickIssues: [],
+    step: 3,
   },
 });
 

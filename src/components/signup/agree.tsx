@@ -30,7 +30,7 @@ export default function Agree() {
   };
 
   const onClickNext = () => {
-    if (agreeAll) setSignup({ ...signup, step: 2 });
+    if (agreeAll) setSignup({ ...signup, step: 1 });
   };
 
   return (

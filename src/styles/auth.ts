@@ -165,6 +165,9 @@ export const signupCss = css`
       margin-top: 60px;
       margin-bottom: 57px;
     }
+    &.pick-issue-header {
+      margin-bottom: 26px;
+    }
   }
   .signup-btn {
     display: block;
@@ -285,26 +288,32 @@ export const signupCss = css`
     .validation {
       padding: 12px 5px;
       color: red;
+      &.black {
+        color: #1d1d1d;
+      }
     }
 
     /* 휴대폰 인증 input & button */
-    &.tel > div {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      input:not([type='radio']) {
-        width: calc(100% - 110px);
-      }
-      button {
-        width: 110px;
-        color: #fff;
-        line-height: 1.4;
-        margin-left: 10px;
-        padding: 15px 10px;
-        border-radius: 5px;
-        background-color: #d5d5d5;
-        &.fill {
-          background-color: #1d1d1d;
+    .tel {
+      margin-top: 32px;
+      > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        input:not([type='radio']) {
+          width: calc(100% - 110px);
+        }
+        button {
+          width: 110px;
+          color: #fff;
+          line-height: 1.4;
+          margin-left: 10px;
+          padding: 15px 10px;
+          border-radius: 5px;
+          background-color: #d5d5d5;
+          &.fill {
+            background-color: #1d1d1d;
+          }
         }
       }
     }
@@ -382,14 +391,61 @@ export const signupCss = css`
     }
   }
 
+  /* 사회 이슈 선택 */
+  .pick-issue {
+    max-width: 370px;
+    margin: 0 auto;
+  }
+  .pick-issue-subtitle {
+    display: block;
+    text-align: center;
+    color: #6b6b6b;
+  }
+  .pick-issue-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 7px;
+    margin-top: 44px;
+    > li {
+      > input[type='checkbox'] {
+        display: none;
+      }
+      > label {
+        position: relative;
+        display: block;
+        width: 105px;
+        min-height: 100px;
+        border: 3px solid rgba(29, 29, 29, 0.1);
+        border-radius: 18px;
+        background-color: #67c296;
+        > img {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          display: none;
+          width: 23px;
+          height: 23px;
+          border-radius: 50%;
+          &.on {
+            display: block;
+          }
+        }
+        > span {
+          position: absolute;
+          bottom: 13px;
+          left: 13px;
+          color: #fff;
+        }
+      }
+    }
+  }
+
   ${mq[0]} {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     max-width: 100%;
-    min-height: 100%;
+    height: 100%;
     margin: 0 auto;
     padding-left: 0;
     padding-right: 0;
@@ -404,6 +460,9 @@ export const signupCss = css`
         font-size: 17px;
         margin: 25px 0;
       }
+      &.pick-issue-header {
+        margin-bottom: 10px;
+      }
     }
     .signup-btn {
       position: absolute;
@@ -415,12 +474,14 @@ export const signupCss = css`
       padding: 14px 5px;
       box-shadow: none;
       &.signup {
-        margin-top: 99px;
+        margin-top: 0;
       }
     }
 
     /* 약관동의 페이지 반응형 */
     .signup-agree-wrap {
+      height: 100%;
+      overflow-y: auto;
       .header {
         display: flex;
         justify-content: space-between;
@@ -438,6 +499,12 @@ export const signupCss = css`
       }
     }
 
+    /* 약관 동의를 제외한 input 입력 페이지 */
+    .signup-wrap {
+      height: 100%;
+      overflow-y: auto;
+    }
+
     /* 생년월일 입력 selectbox */
     .signup-birth,
     .signup-gender {
@@ -445,6 +512,23 @@ export const signupCss = css`
     }
     .signup-gender {
       padding-bottom: 25px;
+    }
+
+    /* 사회 이슈 선택 */
+    .pick-issue-subtitle {
+      text-align: left;
+    }
+    .pick-issue-container {
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-top: 25px;
+      > li {
+        > label {
+          width: auto;
+          height: 27vw;
+          min-height: auto;
+          max-height: 100px;
+        }
+      }
     }
   }
 `;

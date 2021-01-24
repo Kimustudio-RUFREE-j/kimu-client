@@ -62,7 +62,6 @@ export const globalStyle = css`
     font-weight: normal;
     word-spacing: normal;
     height: 100%;
-    overflow: hidden;
   }
   body {
     *word-break: break-all;

@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import signupState from '@/context/signup';
 import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
 
 import { containerCss } from '@/styles/common';
 import { signupCss } from '@/styles/auth';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
+
+dayjs.extend(duration);
 
 export default function BasicInfo() {
   const [signup, setSignup] = useRecoilState(signupState);
@@ -23,6 +26,8 @@ export default function BasicInfo() {
     sendPhoneNum: false,
     confirmPhone: false,
   });
+  const defaultVerificationCounter = 210;
+  const [counter, setCounter] = useState(defaultVerificationCounter);
 
   const {
     userName,
@@ -54,14 +59,38 @@ export default function BasicInfo() {
       birth: birthDate,
       gender,
       phone,
+      step: 3,
     });
   };
+
+  const onSendVerificationCode = () => {
+    setCounter(defaultVerificationCounter);
+    setBasicInfo({
+      ...basicInfo,
+      sendPhoneNum: true,
+    });
+  };
+
+  useEffect(() => {
+    const verificationCodeTimer =
+      sendPhoneNum &&
+      setInterval(() => {
+        if (counter <= 0 || !!confirmPhone) {
+          clearInterval(verificationCodeTimer);
+        } else {
+          setCounter(counter - 1);
+        }
+      }, 1000);
+    return () => {
+      clearInterval(verificationCodeTimer);
+    };
+  }, [sendPhoneNum, counter]);
 
   return (
     <div css={[containerCss, signupCss]}>
       <div className="signup-wrap">
         <h2 className="signup-header">기본 정보</h2>
-        <form className="signup-form">
+        <form className="signup-form" onSubmit={onConfirmBasicInfo}>
           <input
             name="userName"
             type="text"
@@ -77,6 +106,8 @@ export default function BasicInfo() {
                   ...birth,
                   month: birth.month + 1,
                 }}
+                calendarClassName="responsive-calendar"
+                calendarPopperPosition="bottom"
                 onChange={(date: any) => onChangeBirth(date)}
               />
             </div>
@@ -110,63 +141,66 @@ export default function BasicInfo() {
               </label>
             </div>
           </div>
-        </form>
-      </div>
 
-      {/* 전화번호 인증 */}
-      <div className="signup-wrap">
-        <h2 className="signup-header">전화번호 인증</h2>
-        <form className="signup-form tel" onSubmit={onConfirmBasicInfo}>
-          <div>
-            <input
-              name="phone"
-              type="tel"
-              value={phone}
-              placeholder="휴대전화번호 입력"
-              disabled={!!confirmPhone}
-              onChange={onChangeBasicInfo}
-            />
+          {/* 전화번호 인증 */}
+          <div className="tel">
+            <div>
+              <input
+                name="phone"
+                type="tel"
+                value={phone}
+                placeholder="휴대전화번호 입력"
+                disabled={!!confirmPhone}
+                onChange={onChangeBasicInfo}
+              />
+              <button
+                className={phone !== `` ? `fill` : ``}
+                type="button"
+                disabled={phone === `` || !!confirmPhone}
+                onClick={onSendVerificationCode}
+              >
+                인증번호 전송
+              </button>
+            </div>
+            <p className="validation" />
+            <div>
+              <input
+                name="validatePhone"
+                type="number"
+                value={validatePhone}
+                placeholder="인증번호 입력"
+                onChange={onChangeBasicInfo}
+              />
+              <button
+                className={validatePhone !== `` ? `fill` : ``}
+                type="button"
+                disabled={validatePhone === ``}
+                onClick={() => {
+                  setBasicInfo({ ...basicInfo, confirmPhone: true });
+                }}
+              >
+                인증번호 확인
+              </button>
+            </div>
+            <p className="validation black">
+              {!!sendPhoneNum &&
+                dayjs
+                  .duration({
+                    seconds: counter % 60,
+                    minutes: Math.floor(counter / 60),
+                  })
+                  .format(`mm:ss`)}
+            </p>
             <button
-              className={phone !== `` ? `fill` : ``}
-              type="button"
-              disabled={phone === `` || !!confirmPhone}
-              onClick={() => {
-                setBasicInfo({ ...basicInfo, sendPhoneNum: true });
-              }}
+              className={`signup-btn signup ${
+                !!confirmPhone && userName !== `` && ` fill`
+              }`}
+              type="submit"
+              disabled={!confirmPhone || userName === ``}
             >
-              인증번호 전송
+              확인
             </button>
           </div>
-          <p className="validation" />
-          <div>
-            <input
-              name="validatePhone"
-              type="number"
-              value={validatePhone}
-              placeholder="인증번호 입력"
-              onChange={onChangeBasicInfo}
-            />
-            <button
-              className={validatePhone !== `` ? `fill` : ``}
-              type="button"
-              disabled={validatePhone === ``}
-              onClick={() => {
-                setBasicInfo({ ...basicInfo, confirmPhone: true });
-              }}
-            >
-              인증번호 확인
-            </button>
-          </div>
-          <p className="validation">{!!sendPhoneNum && `3:30`}</p>
-          <button
-            className={`signup-btn signup ${
-              !!confirmPhone && userName !== `` && ` fill`
-            }`}
-            type="submit"
-            disabled={!confirmPhone || userName === ``}
-          >
-            확인
-          </button>
         </form>
       </div>
     </div>

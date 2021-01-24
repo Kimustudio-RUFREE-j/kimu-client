@@ -17,6 +17,8 @@ export default function EmailSignup() {
     pwdValidation: ``,
     confirmPwdValidation: ``,
   });
+  const { email, pwd, confirmPwd } = signupInfo;
+  let { emailValidation, pwdValidation, confirmPwdValidation } = signupInfo;
 
   const onChangeSignupInfo = (e) => {
     const { name, value } = e.target;
@@ -43,10 +45,6 @@ export default function EmailSignup() {
 
   const onSubmitSignupInfo = (e) => {
     e.preventDefault();
-    const { email, pwd, confirmPwd } = signupInfo;
-    let emailValidation = ``;
-    let pwdValidation = ``;
-    let confirmPwdValidation = ``;
     if (!validateEmail(email))
       emailValidation = `이메일 주소를 바르게 입력해주세요.`;
     if (!validatePwd(pwd))
@@ -65,7 +63,7 @@ export default function EmailSignup() {
       });
       return false;
     }
-    setSignup({ ...signup, email, password: pwd, step: 1 });
+    setSignup({ ...signup, email, password: pwd, step: 2 });
     return true;
   };
 
@@ -78,39 +76,32 @@ export default function EmailSignup() {
             type="email"
             name="email"
             placeholder="이메일"
-            value={signupInfo.email}
+            value={email}
             onChange={onChangeSignupInfo}
           />
-          <p className="validation">{signupInfo.emailValidation}</p>
+          <p className="validation">{emailValidation}</p>
           <input
             type="password"
             name="pwd"
             placeholder="비밀번호 (숫자, 영문 포함 8자리)"
-            value={signupInfo.pwd}
+            value={pwd}
             onChange={onChangeSignupInfo}
           />
-          <p className="validation">{signupInfo.pwdValidation}</p>
+          <p className="validation">{pwdValidation}</p>
           <input
             type="password"
             name="confirmPwd"
             placeholder="비밀번호 재입력"
-            value={signupInfo.confirmPwd}
+            value={confirmPwd}
             onChange={onChangeSignupInfo}
           />
-          <p className="validation">{signupInfo.confirmPwdValidation}</p>
+          <p className="validation">{confirmPwdValidation}</p>
           <button
             className={`signup-btn signup ${
-              signupInfo.email !== `` &&
-              signupInfo.pwd !== `` &&
-              signupInfo.confirmPwd !== `` &&
-              ` fill`
+              email !== `` && pwd !== `` && confirmPwd !== `` && ` fill`
             }`}
             type="submit"
-            disabled={
-              signupInfo.email === `` ||
-              signupInfo.pwd === `` ||
-              signupInfo.confirmPwd === ``
-            }
+            disabled={email === `` || pwd === `` || confirmPwd === ``}
           >
             이메일로 가입하기
           </button>
