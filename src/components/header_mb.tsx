@@ -48,14 +48,14 @@ export default function HeaderMb() {
           </button>
         </div>
         <div className="mb-menu">
-          <ul className="mb-main-menu">
+          <ul className="mb-menu-main">
             {mainMenus.map((mainMenu) => (
               <li key={mainMenu.path}>
                 <Link href={mainMenu.path}>{mainMenu.name.toUpperCase()}</Link>
               </li>
             ))}
           </ul>
-          <ul className="mb-sub-menu">
+          <ul className="mb-menu-sub">
             {subMenus.map((subMenu) => (
               <li key={subMenu.path}>
                 <Link href={subMenu.path}>
@@ -70,7 +70,11 @@ export default function HeaderMb() {
           </ul>
         </div>
         <div className="mb-menu-btn">
-          <Link href="/signin">SIGN IN</Link>
+          <Link href="/signin">
+            <a>
+              <span>SIGN UP</span> <span>SIGN IN</span>
+            </a>
+          </Link>
           <Link href="/">NON MEMBER</Link>
         </div>
       </nav>

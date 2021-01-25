@@ -295,6 +295,7 @@ export const signupCss = css`
       }
       &.black {
         color: #1d1d1d;
+        padding-left: 15px;
       }
     }
 

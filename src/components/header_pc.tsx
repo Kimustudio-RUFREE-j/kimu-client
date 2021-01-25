@@ -34,10 +34,11 @@ export default function HeaderPc() {
           <div className="util-menu">
             <ul>
               <li>
-                <Link href="/signup">SIGN UP</Link>
-              </li>
-              <li>
-                <Link href="/signin">SIGN IN</Link>
+                <Link href="/signin">
+                  <a>
+                    <span>SIGN UP</span> <span>SIGN IN</span>
+                  </a>
+                </Link>
               </li>
               <li>
                 <Link href="/">NON-MEMBER</Link>

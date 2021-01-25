@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import signupState from '@/context/signup';
+import { signupState } from '@/context/signup';
 
 import { containerCss } from '@/styles/common';
 import { signupCss } from '@/styles/auth';
@@ -73,7 +73,7 @@ export default function PickIssues() {
           ))}
         </ul>
         <button
-          className={`signup-btn signup${pickIssues.length >= 3 && ` fill`}`}
+          className={`signup-btn ${pickIssues.length >= 3 && ` fill`}`}
           type="button"
           disabled={pickIssues.length < 3}
           onClick={completePickIssue}

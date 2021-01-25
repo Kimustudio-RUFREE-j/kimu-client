@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import signupState from '@/context/signup';
+import { signupState } from '@/context/signup';
+
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import DatePicker from '@hassanmojab/react-modern-calendar-datepicker';
@@ -28,7 +29,6 @@ export default function BasicInfo() {
   });
   const defaultVerificationCounter = 210;
   const [counter, setCounter] = useState(defaultVerificationCounter);
-
   const {
     userName,
     birth,
@@ -51,7 +51,7 @@ export default function BasicInfo() {
   const onConfirmBasicInfo = (e: any) => {
     e.preventDefault();
     const birthDate = dayjs(
-      new Date(birth.year, birth.month, birth.day),
+      new Date(birth.year, birth.month - 1, birth.day),
     ).format(`YYYYMMDD`);
     setSignup({
       ...signup,

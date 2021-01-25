@@ -11,18 +11,18 @@ interface SignupInfo {
   step: number;
 }
 
-const signupState = atom<SignupInfo>({
-  key: `signupState`,
-  default: {
-    email: null,
-    password: null,
-    userName: null,
-    birth: null,
-    gender: null,
-    phone: null,
-    pickIssues: null,
-    step: 0,
-  },
-});
+export const defaultSignupState = {
+  email: null,
+  password: null,
+  userName: null,
+  birth: null,
+  gender: null,
+  phone: null,
+  pickIssues: null,
+  step: 0,
+};
 
-export default signupState;
+export const signupState = atom<SignupInfo>({
+  key: `signupState`,
+  default: defaultSignupState,
+});

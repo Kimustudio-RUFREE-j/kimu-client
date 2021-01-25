@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import signupState from '@/context/signup';
+import { signupState } from '@/context/signup';
 
 import { containerCss } from '@/styles/common';
 import { signupCss } from '@/styles/auth';

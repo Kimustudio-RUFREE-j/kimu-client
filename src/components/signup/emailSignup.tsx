@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import signupState from '@/context/signup';
+import { signupState } from '@/context/signup';
 
 import { validateEmail, validatePwd } from '@/utils/validation';
 
@@ -104,7 +104,7 @@ export default function EmailSignup() {
             type="submit"
             disabled={email === `` || pwd === `` || confirmPwd === ``}
           >
-            이메일로 가입하기
+            다음 단계로
           </button>
         </form>
       </div>

@@ -10,6 +10,7 @@ export const headerCss = css`
   background: #fff;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 4px 6px 0px;
 
+  /* 상단 메뉴 ARTWORK 등 */
   .sub-menu {
     display: flex;
     justify-content: flex-end;
@@ -23,56 +24,58 @@ export const headerCss = css`
     }
   }
 
+  /* 로고 있는 부분 */
   .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px 9px;
     box-sizing: border-box;
-  }
-
-  .main-menu {
-    display: flex;
-    align-items: center;
-    > ul {
+    .main-menu {
       display: flex;
-      > li {
-        margin-left: 36px;
-        > a {
-          font-size: 22px;
-          font-weight: bold;
+      align-items: center;
+      > ul {
+        display: flex;
+        > li {
+          margin-left: 36px;
+          > a {
+            font-size: 22px;
+            font-weight: bold;
+          }
         }
+      }
+    }
+    .logo {
+      cursor: pointer;
+      img {
+        width: 40px;
+        height: 40px;
       }
     }
   }
 
-  .logo {
-    cursor: pointer;
-    img {
-      width: 40px;
-      height: 40px;
-    }
-  }
-
+  /* 회원가입, 장바구니 등 */
   .util-menu {
     display: flex;
     align-items: center;
     > ul {
       display: flex;
-      > li {
-        padding: 0 5px;
-        &:first-of-type {
-          position: relative;
-          &::before {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            display: block;
-            content: '';
-            width: 1px;
-            height: 70%;
-            background-color: #1d1d1d;
+      > li > a {
+        > span {
+          padding: 0 5px;
+          &:first-of-type {
+            position: relative;
+            &::before {
+              position: absolute;
+              top: 50%;
+              right: 0;
+              transform: translateY(-50%);
+              display: block;
+              content: '';
+              width: 1px;
+              height: 55%;
+              background-color: #1d1d1d;
+            }
           }
         }
         &:last-of-type {
@@ -112,7 +115,7 @@ export const burgerIcon = css`
   width: 20px;
   height: 20px;
   cursor: pointer;
-
+  /* 선 */
   .line {
     position: absolute;
     left: 0;
@@ -158,7 +161,7 @@ export const burgerIcon = css`
       }
     }
   }
-
+  /* 활성화 */
   &.active {
     .line {
       &:nth-of-type(1) {
@@ -213,11 +216,13 @@ export const mbMenuCss = css`
     animation-fill-mode: forwards;
   }
 
+  /* 메뉴창 */
   .mb-menu {
     height: calc((100% - 56px) - 50px);
     overflow-y: auto;
   }
 
+  /* 메뉴창 헤더 */
   .mb-menu-header {
     display: flex;
     justify-content: space-between;
@@ -235,7 +240,8 @@ export const mbMenuCss = css`
     }
   }
 
-  .mb-main-menu {
+  /* PRE-ORDER 등 */
+  .mb-menu-main {
     padding: 19px 25px;
     box-sizing: border-box;
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.08);
@@ -245,7 +251,8 @@ export const mbMenuCss = css`
     }
   }
 
-  .mb-sub-menu {
+  /* ARTWORK 등 */
+  .mb-menu-sub {
     padding: 3px 25px 0;
     > li {
       > a {
@@ -268,6 +275,7 @@ export const mbMenuCss = css`
     }
   }
 
+  /* 로그인, 마이페이지 버튼 */
   .mb-menu-btn {
     position: absolute;
     bottom: 0;
@@ -293,6 +301,24 @@ export const mbMenuCss = css`
           height: 30%;
           content: '';
           background-color: rgba(255, 255, 255, 0.3);
+        }
+      }
+      /* SIGN UP / SIGN IN 버튼 */
+      > span {
+        padding: 0 5px;
+        &:first-of-type {
+          position: relative;
+          &::before {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            display: block;
+            content: '';
+            width: 1px;
+            height: 55%;
+            background-color: #fff;
+          }
         }
       }
     }

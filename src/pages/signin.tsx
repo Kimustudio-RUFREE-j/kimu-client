@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRecoilState } from 'recoil';
+import { signupState, defaultSignupState } from '@/context/signup';
 
 import HeaderMb from '@/components/header_mb';
 import Footer from '@/components/footer';
@@ -8,6 +10,11 @@ import { onlyPc, containerCss } from '@/styles/common';
 import { signinCss } from '@/styles/auth';
 
 export default function Signin() {
+  const [signup, setSignup] = useRecoilState(signupState);
+  const onClickSignup = () => {
+    setSignup({ ...defaultSignupState });
+  };
+
   return (
     <>
       <HeaderMb />
@@ -21,7 +28,11 @@ export default function Signin() {
           </form>
           <ul>
             <li>
-              <Link href="/signup">회원가입</Link>
+              <Link href="/signup">
+                <button type="button" onClick={onClickSignup}>
+                  회원가입
+                </button>
+              </Link>
             </li>
             <li>
               <Link href="/findId">계정 찾기</Link>

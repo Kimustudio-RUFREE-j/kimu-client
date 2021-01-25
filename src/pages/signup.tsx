@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
-import signupState from '@/context/signup';
+import { signupState } from '@/context/signup';
 
 import HeaderMb from '@/components/header_mb';
 import Footer from '@/components/footer';
