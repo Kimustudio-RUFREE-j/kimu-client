@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
+
 import { signupState } from '@/context/signup';
+import { modalAtom } from '@/context/modal';
+
+import ConfirmModal from '@/components/modal/confirmModal';
 
 import { containerCss } from '@/styles/common';
 import { signupCss } from '@/styles/auth';
@@ -24,6 +28,7 @@ export default function PickIssues() {
   issuesList = issuesList.map((issue) => ({ ...issue, checked: false }));
   const [issues, setIssues] = useState<Issue[]>(issuesList);
   const [pickIssues, setPickIssues] = useState<Issue[]>([]);
+  const [modalState, setModalState] = useRecoilState(modalAtom);
 
   const onClickPickIssue = (data: Issue) => {
     setIssues(
@@ -38,6 +43,20 @@ export default function PickIssues() {
 
   const completePickIssue = () => {
     setSignup({ ...signup, pickIssues });
+    setModalState({
+      ...modalState,
+      closable: false,
+      visible: true,
+      type: `confirm`,
+      component: (
+        <ConfirmModal
+          id={12345}
+          ModalText="회원 가입이<br/>완료되었습니다."
+          ConfirmBtnText="확인"
+          CancelBtnText="닫기"
+        />
+      ),
+    });
   };
 
   return (

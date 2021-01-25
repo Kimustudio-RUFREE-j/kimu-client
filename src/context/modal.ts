@@ -4,10 +4,10 @@ interface ModalInfo {
   closable: boolean;
   visible: boolean;
   type: string;
-  component: HTMLElement;
+  component: React.ReactNode;
 }
 
-const modalState = atom<ModalInfo>({
+export const modalAtom = atom<ModalInfo>({
   key: `modalState`,
   default: {
     closable: false,
@@ -16,5 +16,3 @@ const modalState = atom<ModalInfo>({
     component: null,
   },
 });
-
-export default modalState;
