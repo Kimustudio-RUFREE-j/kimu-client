@@ -20,8 +20,8 @@ const signupState = atom<SignupInfo>({
     birth: null,
     gender: null,
     phone: null,
-    pickIssues: [],
-    step: 3,
+    pickIssues: null,
+    step: 0,
   },
 });
 

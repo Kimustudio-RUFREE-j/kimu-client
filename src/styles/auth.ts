@@ -286,8 +286,13 @@ export const signupCss = css`
     }
 
     .validation {
-      padding: 12px 5px;
+      font-size: 13px;
       color: red;
+      padding: 5px 0 7px;
+      box-sizing: border-box;
+      &.val-email {
+        padding: 5px 0 38px;
+      }
       &.black {
         color: #1d1d1d;
       }

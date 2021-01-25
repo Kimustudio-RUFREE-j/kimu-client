@@ -61,12 +61,12 @@ export const headerCss = css`
       display: flex;
       > li {
         padding: 0 5px;
-        &:last-of-type {
+        &:first-of-type {
           position: relative;
           &::before {
             position: absolute;
             top: 50%;
-            left: 0;
+            right: 0;
             transform: translateY(-50%);
             display: block;
             content: '';
@@ -74,6 +74,9 @@ export const headerCss = css`
             height: 70%;
             background-color: #1d1d1d;
           }
+        }
+        &:last-of-type {
+          margin-left: 10px;
         }
       }
     }

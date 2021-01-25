@@ -46,10 +46,11 @@ export default function EmailSignup() {
   const onSubmitSignupInfo = (e) => {
     e.preventDefault();
     if (!validateEmail(email))
-      emailValidation = `이메일 주소를 바르게 입력해주세요.`;
+      emailValidation = `*이메일 형식대로 다시 입력해주세요.`;
     if (!validatePwd(pwd))
-      pwdValidation = `영문, 숫자 포함 최소 8자리를 입력해주세요.`;
-    if (pwd !== confirmPwd) confirmPwdValidation = `비밀번호가 같지 않습니다.`;
+      pwdValidation = `*비밀번호는 숫자, 영문을 포함한 8자기 이상이여야 합니다.`;
+    if (pwd !== confirmPwd)
+      confirmPwdValidation = `*비밀번호가 일치하지 않습니다.`;
     if (
       emailValidation !== `` ||
       pwdValidation !== `` ||
@@ -79,7 +80,7 @@ export default function EmailSignup() {
             value={email}
             onChange={onChangeSignupInfo}
           />
-          <p className="validation">{emailValidation}</p>
+          <p className="validation val-email">{emailValidation}</p>
           <input
             type="password"
             name="pwd"

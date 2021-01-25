@@ -17,7 +17,7 @@ export default function BasicInfo() {
     userName: ``,
     birth: {
       year: dayjs().get(`year`),
-      month: dayjs().get(`month`),
+      month: dayjs().get(`month`) + 1,
       day: dayjs().get(`date`),
     },
     gender: `female`,
@@ -104,7 +104,7 @@ export default function BasicInfo() {
               <DatePicker
                 value={{
                   ...birth,
-                  month: birth.month + 1,
+                  month: birth.month,
                 }}
                 calendarClassName="responsive-calendar"
                 calendarPopperPosition="bottom"

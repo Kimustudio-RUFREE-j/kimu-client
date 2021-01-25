@@ -13,30 +13,32 @@ interface Issue {
 
 export default function PickIssues() {
   const [signup, setSignup] = useRecoilState(signupState);
-  let issues: Issue[] = [
+  let issuesList: Issue[] = [
     { id: 0, title: `장애인` },
-    { id: 1, title: `장애인` },
-    { id: 2, title: `장애인` },
-    { id: 3, title: `장애인` },
-    { id: 4, title: `장애인` },
-    { id: 5, title: `장애인` },
+    { id: 1, title: `환경` },
+    { id: 2, title: `아동학대` },
+    { id: 3, title: `성차별` },
+    { id: 4, title: `인종차별` },
+    { id: 5, title: `노인차별` },
   ];
-  issues = issues.map((issue) => ({ ...issue, checked: false }));
-  const [pickIssues, setPickIssues] = useState<Issue[]>(issues);
+  issuesList = issuesList.map((issue) => ({ ...issue, checked: false }));
+  const [issues, setIssues] = useState<Issue[]>(issuesList);
+  const [pickIssues, setPickIssues] = useState<Issue[]>([]);
 
   const onClickPickIssue = (data: Issue) => {
-    setPickIssues(
-      pickIssues.map((issue) =>
+    setIssues(
+      issues.map((issue) =>
         issue.id === data.id ? { ...issue, checked: !issue.checked } : issue,
       ),
     );
+    if (!data.checked) setPickIssues([...pickIssues, data]);
+    else if (data.checked)
+      setPickIssues(pickIssues.filter((issue) => issue.id !== data.id));
   };
 
-  // if (pickIssues.includes(data)) {
-  //   setPickIssues(pickIssues.filter((issue) => issue.id !== data.id));
-  // } else {
-  //   setPickIssues([...pickIssues, data]);
-  // }
+  const completePickIssue = () => {
+    setSignup({ ...signup, pickIssues });
+  };
 
   return (
     <div css={[containerCss, signupCss]}>
@@ -50,7 +52,7 @@ export default function PickIssues() {
           관심 사회 이슈를 3개 이상 선택해주세요.
         </span>
         <ul className="pick-issue-container">
-          {pickIssues.map((issue) => (
+          {issues.map((issue) => (
             <li key={issue.id}>
               <input
                 id={`issue-${issue.id}`}
@@ -71,9 +73,10 @@ export default function PickIssues() {
           ))}
         </ul>
         <button
-          className="signup-btn signup"
-          type="submit"
-          disabled={pickIssues.length <= 0}
+          className={`signup-btn signup${pickIssues.length >= 3 && ` fill`}`}
+          type="button"
+          disabled={pickIssues.length < 3}
+          onClick={completePickIssue}
         >
           선택완료
         </button>
