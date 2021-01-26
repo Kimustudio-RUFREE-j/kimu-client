@@ -41,7 +41,7 @@ export default function HeaderPc() {
                 </Link>
               </li>
               <li>
-                <Link href="/">NON-MEMBER</Link>
+                <Link href="/nonMember">NON-MEMBER</Link>
               </li>
             </ul>
             <button type="button">

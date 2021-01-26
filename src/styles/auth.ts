@@ -4,25 +4,26 @@ import { mq } from '@/styles/common';
 export const signinCss = css`
   display: flex;
   justify-content: center;
-  margin-top: 43px;
-  margin-bottom: 61px;
+  /* 페이지 wrap */
   .signin,
   .non-member {
     width: 100%;
     max-width: 385px;
-    margin: 60px 0;
+    margin-top: 103px;
+    margin-bottom: 150px;
     padding: 0 52px;
     h2 {
       font-size: 20px;
       text-align: center;
       margin-bottom: 60px;
     }
+    /* input form */
     form {
       width: 100%;
       input {
         display: block;
         width: 100%;
-        padding: 10px 0;
+        padding: 15px 0;
         box-sizing: border-box;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         &:nth-of-type(2) {
@@ -43,6 +44,7 @@ export const signinCss = css`
     }
   }
 
+  /* 로그인 페이지 */
   .signin {
     > ul {
       display: flex;
@@ -71,7 +73,8 @@ export const signinCss = css`
         &:last-of-type {
           padding-right: 0;
         }
-        > a {
+        > a,
+        > button {
           font-size: 15px;
           color: #6b6b6b;
         }
@@ -79,47 +82,36 @@ export const signinCss = css`
     }
   }
 
+  /* 비회원 페이지 */
   .non-member {
-    border-left: 1px solid rgba(0, 0, 0, 0.25);
     form {
       button {
-        margin: 30px auto 0;
+        margin: 34px auto 0;
       }
     }
-  }
-  .non-member-noti {
-    font-size: 13px;
-    line-height: 1.54;
-    color: #3f4142;
-    margin-top: 10px;
+    .non-member-noti {
+      font-size: 13px;
+      line-height: 1.54;
+      color: #3f4142;
+      margin-top: 10px;
+    }
   }
 
   ${mq[0]} {
     display: block;
-    margin: 33px 0 55px;
     padding-left: 20px;
     padding-right: 20px;
     box-sizing: border-box;
+    /* 페이지 wrap */
     .signin,
     .non-member {
-      margin: 0 auto;
+      margin: 52px auto 0;
       padding: 0;
-      h2 {
-        font-size: 17x;
-        margin-bottom: 36px;
-      }
-      form {
-        button {
-          max-width: 100%;
-          margin: 35px auto 0;
-          padding: 14px 8px;
-        }
-      }
     }
 
+    /* 로그인 페이지 */
     .signin {
       > ul {
-        margin-top: 27px;
         > li {
           padding: 0 15px;
           > a {
@@ -127,23 +119,6 @@ export const signinCss = css`
           }
         }
       }
-    }
-
-    .non-member {
-      border-left: none;
-      h2 {
-        font-size: 13px;
-        margin-top: 73px;
-        margin-bottom: 25px;
-      }
-      form {
-        button {
-          margin: 10px auto 0;
-        }
-      }
-    }
-    .non-member-noti {
-      font-size: 12px;
     }
   }
 `;

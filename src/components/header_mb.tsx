@@ -75,7 +75,7 @@ export default function HeaderMb() {
               <span>SIGN UP</span> <span>SIGN IN</span>
             </a>
           </Link>
-          <Link href="/">NON MEMBER</Link>
+          <Link href="/nonMember">NON MEMBER</Link>
         </div>
       </nav>
     </header>
