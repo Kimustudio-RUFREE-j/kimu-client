@@ -23,6 +23,9 @@ export default function Signin() {
           <h2>로그인</h2>
           <form>
             <input placeholder="이메일" />
+            <p className="signin-noti">
+              *등록되지 않은 이메일이거나, 잘못된 비밀번호 입니다.
+            </p>
             <input placeholder="비밀번호" />
             <button type="submit">로그인</button>
           </form>

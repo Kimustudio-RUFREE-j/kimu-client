@@ -26,9 +26,6 @@ export const signinCss = css`
         padding: 15px 0;
         box-sizing: border-box;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        &:nth-of-type(2) {
-          margin-top: 30px;
-        }
       }
       button {
         display: block;
@@ -46,6 +43,13 @@ export const signinCss = css`
 
   /* 로그인 페이지 */
   .signin {
+    .signin-noti {
+      height: 13px;
+      font-size: 12px;
+      line-height: 13px;
+      color: rgb(255, 67, 67);
+      margin: 5px 0;
+    }
     > ul {
       display: flex;
       justify-content: center;
@@ -114,7 +118,8 @@ export const signinCss = css`
       > ul {
         > li {
           padding: 0 15px;
-          > a {
+          > a,
+          > button {
             font-size: 13px;
           }
         }
@@ -261,12 +266,14 @@ export const signupCss = css`
     }
 
     .validation {
-      font-size: 13px;
-      color: red;
-      padding: 5px 0 7px;
+      height: 13px;
+      font-size: 12px;
+      line-height: 13px;
+      color: rgb(255, 67, 67);
+      margin: 5px 0;
       box-sizing: border-box;
       &.val-email {
-        padding: 5px 0 38px;
+        margin: 5px 0 31px;
       }
       &.black {
         color: #1d1d1d;
@@ -316,7 +323,7 @@ export const signupCss = css`
   .signup-birth {
     .custom-datepicker {
       position: relative;
-      width: calc(100% - 60px);
+      width: calc(100% - 110px);
       &:after {
         position: absolute;
         top: 50%;
