@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
-import { signupState } from '@/context/signup';
+import { signupAtom } from '@/atom/auth';
 
 import HeaderMb from '@/components/header_mb';
 import Footer from '@/components/footer';
@@ -12,7 +12,7 @@ import PickIssues from '@/components/signup/pickIssues';
 import { onlyPc } from '@/styles/common';
 
 export default function Signup() {
-  const [signup, setSignup] = useRecoilState(signupState);
+  const [signup, setSignup] = useRecoilState(signupAtom);
 
   let currentPage = null;
   if (signup.step === 0) {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { signupState } from '@/context/signup';
+import { signupAtom } from '@/atom/auth';
 
 import { containerCss } from '@/styles/common';
 import { signupCss } from '@/styles/auth';
@@ -8,7 +8,7 @@ import { signupCss } from '@/styles/auth';
 import { privacyPolicy, termsAndConditions } from '@/constants';
 
 export default function Agree() {
-  const [signup, setSignup] = useRecoilState(signupState);
+  const [signup, setSignup] = useRecoilState(signupAtom);
   const [agreePp, setAgreePp] = useState(false);
   const [agreeTnc, setAgreeTnc] = useState(false);
   const agreeAll = agreePp && agreeTnc;

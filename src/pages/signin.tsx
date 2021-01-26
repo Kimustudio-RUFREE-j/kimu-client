@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRecoilState } from 'recoil';
-import { signupState, defaultSignupState } from '@/context/signup';
+import { signupAtom, defaultSignupAtom } from '@/atom/auth';
 
 import HeaderMb from '@/components/header_mb';
 import Footer from '@/components/footer';
@@ -10,9 +10,29 @@ import { onlyPc, containerCss } from '@/styles/common';
 import { signinCss } from '@/styles/auth';
 
 export default function Signin() {
-  const [signup, setSignup] = useRecoilState(signupState);
+  const [signup, setSignup] = useRecoilState(signupAtom);
+  const [signin, setSignin] = useState({
+    email: ``,
+    pwd: ``,
+    validateSignin: ``,
+  });
+  const { email, pwd, validateSignin } = signin;
+
   const onClickSignup = () => {
-    setSignup({ ...defaultSignupState });
+    setSignup({ ...defaultSignupAtom });
+  };
+
+  const onChangeSignin = (e: any) => {
+    const { name, value } = e.target;
+    setSignin({ ...signin, [name]: value });
+  };
+
+  const onSubmitSignin = (e: any) => {
+    e.preventDefault();
+    setSignin({
+      ...signin,
+      validateSignin: `*등록되지 않은 이메일이거나, 잘못된 비밀번호 입니다.`,
+    });
   };
 
   return (
@@ -21,13 +41,29 @@ export default function Signin() {
       <div css={[containerCss, signinCss]}>
         <div className="signin">
           <h2>로그인</h2>
-          <form>
-            <input placeholder="이메일" />
-            <p className="signin-noti">
-              *등록되지 않은 이메일이거나, 잘못된 비밀번호 입니다.
-            </p>
-            <input placeholder="비밀번호" />
-            <button type="submit">로그인</button>
+          <form onSubmit={onSubmitSignin} noValidate>
+            <input
+              name="email"
+              type="email"
+              placeholder="이메일"
+              value={email}
+              onChange={onChangeSignin}
+            />
+            <p className="signin-noti">{validateSignin}</p>
+            <input
+              name="pwd"
+              type="password"
+              placeholder="비밀번호"
+              value={pwd}
+              onChange={onChangeSignin}
+            />
+            <button
+              className={email !== `` && pwd !== `` ? `fill` : ``}
+              type="submit"
+              disabled={email === `` || pwd === ``}
+            >
+              로그인
+            </button>
           </form>
           <ul>
             <li>

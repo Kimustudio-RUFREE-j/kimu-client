@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import HeaderPc from '@/components/header_pc';
 import Modal from '@/components/modal/index';
 
-import { modalAtom } from '@/context/modal';
+import { modalAtom } from '@/atom/modal';
 
 export default function Layout({ children }) {
   const [modalState, setModalState] = useRecoilState(modalAtom);

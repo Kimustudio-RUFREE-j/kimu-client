@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { signupState } from '@/context/signup';
-import { modalAtom } from '@/context/modal';
+import { signupAtom } from '@/atom/auth';
+import { modalAtom } from '@/atom/modal';
 
 import ConfirmModal from '@/components/modal/confirmModal';
 
@@ -16,7 +16,7 @@ interface Issue {
 }
 
 export default function PickIssues() {
-  const [signup, setSignup] = useRecoilState(signupState);
+  const [signup, setSignup] = useRecoilState(signupAtom);
   let issuesList: Issue[] = [
     { id: 0, title: `장애인` },
     { id: 1, title: `환경` },

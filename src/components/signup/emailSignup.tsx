@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { signupState } from '@/context/signup';
+import { signupAtom } from '@/atom/auth';
 
 import { validateEmail, validatePwd } from '@/utils/validation';
 
@@ -8,7 +8,7 @@ import { containerCss } from '@/styles/common';
 import { signupCss } from '@/styles/auth';
 
 export default function EmailSignup() {
-  const [signup, setSignup] = useRecoilState(signupState);
+  const [signup, setSignup] = useRecoilState(signupAtom);
   const [signupInfo, setSignupInfo] = useState({
     email: ``,
     pwd: ``,

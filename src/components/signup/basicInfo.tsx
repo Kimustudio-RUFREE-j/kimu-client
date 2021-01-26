@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { signupState } from '@/context/signup';
+import { signupAtom } from '@/atom/auth';
 
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
@@ -13,7 +13,7 @@ import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 dayjs.extend(duration);
 
 export default function BasicInfo() {
-  const [signup, setSignup] = useRecoilState(signupState);
+  const [signup, setSignup] = useRecoilState(signupAtom);
   const [basicInfo, setBasicInfo] = useState({
     userName: ``,
     birth: {

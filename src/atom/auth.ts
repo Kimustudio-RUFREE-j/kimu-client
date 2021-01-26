@@ -11,7 +11,7 @@ interface SignupInfo {
   step: number;
 }
 
-export const defaultSignupState = {
+export const defaultSignupAtom = {
   email: null,
   password: null,
   userName: null,
@@ -22,7 +22,7 @@ export const defaultSignupState = {
   step: 0,
 };
 
-export const signupState = atom<SignupInfo>({
-  key: `signupState`,
-  default: defaultSignupState,
+export const signupAtom = atom<SignupInfo>({
+  key: `signupAtom`,
+  default: defaultSignupAtom,
 });

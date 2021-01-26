@@ -36,7 +36,12 @@ export const signinCss = css`
         padding: 16px 10px;
         box-sizing: border-box;
         border-radius: 5px;
-        background-color: #1d1d1d;
+        background-color: #d5d5d5;
+        cursor: not-allowed;
+        &.fill {
+          background-color: #1d1d1d;
+          cursor: pointer;
+        }
       }
     }
   }

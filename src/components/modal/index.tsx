@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import Portal from '@/components/modal/portal';
-import { modalAtom } from '@/context/modal';
+import { modalAtom } from '@/atom/modal';
 
 export default function Modal() {
   const [modalState, setModalState] = useRecoilState(modalAtom);
