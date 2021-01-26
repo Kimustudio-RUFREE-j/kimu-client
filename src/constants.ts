@@ -1,6 +1,16 @@
-import { start } from 'repl';
+interface MenuInfo {
+  path: string;
+  name: string;
+}
 
-export const subMenus: { path: string; name: string }[] = [
+interface SnsInfo {
+  url: string;
+  src: string;
+  alt: string;
+  name: string;
+}
+
+export const subMenus: MenuInfo[] = [
   { path: `/artwork`, name: `artwork` },
   { path: `/exhibition`, name: `exhibition` },
   { path: `/notice`, name: `notice` },
@@ -8,18 +18,13 @@ export const subMenus: { path: string; name: string }[] = [
   { path: `/contactus`, name: `contact us` },
 ];
 
-export const mainMenus: { path: string; name: string }[] = [
+export const mainMenus: MenuInfo[] = [
   { path: `/preorder`, name: `pre-order` },
   { path: `/shop`, name: `shop` },
   { path: `/magazine`, name: `magazine` },
 ];
 
-export const socials: {
-  url: string;
-  src: string;
-  alt: string;
-  name: string;
-}[] = [
+export const socials: SnsInfo[] = [
   {
     url: `https://pf.kakao.com/_cxcnbT`,
     src: `/assets/icons/ic-kakaotalk.svg`,
@@ -56,6 +61,15 @@ export const socials: {
     alt: `키뮤스튜디오 블로그 바로가기`,
     name: `blog`,
   },
+];
+
+export const mypageMenus: MenuInfo[] = [
+  { path: `/mypage/coupon`, name: `쿠폰` },
+  { path: `/mypage/mileage`, name: `마일리지` },
+  { path: `/mypage/orderCheck`, name: `주문 배송 조회` },
+  { path: `/mypage/refundDetails`, name: `취소/반품/교환/환불내역` },
+  { path: `/mypage/reviews`, name: `리뷰 관리` },
+  { path: `/mypage/modifyInfo`, name: `회원정보 수정` },
 ];
 
 export const privacyPolicy = `[개인정보 수집항목]
